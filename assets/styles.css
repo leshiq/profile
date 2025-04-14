@@ -1,0 +1,30 @@
+/* Apply flexbox styling to articles within sections */
+section article {
+    display: flex;
+    align-items: stretch; /* Change to stretch for equal height */
+    margin-bottom: 1.5rem;
+}
+
+section article .section-heading {
+    flex: 0 0 30%; /* Adjusted ratio: 30% heading, 70% content */
+    border-right: 1px solid #ccc; /* Thin grey line */
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+
+section article .section-content {
+    flex: 1;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    section article {
+        flex-direction: column;
+    }
+    section article .section-heading {
+        border-right: none;
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+        padding-right: 0;
+    }
+}
