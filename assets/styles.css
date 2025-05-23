@@ -16,6 +16,28 @@ section article .section-content {
     flex: 1;
 }
 
+/* Header row alignment */
+header .row {
+    align-items: center;
+}
+
+header .column:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* Profile photo in header */
+.profile-photo {
+    width: 124px;
+    height: 124px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #ccc;
+    display: block;
+    /* Optional: add margin if needed */
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     section article {

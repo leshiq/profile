@@ -34,10 +34,19 @@
 <body>
   <div class="container">
     <header>
-      <h1>Andrei Kalinin</h1>
-      <p><em>Software Engineer &amp; Technical Problem Solver</em></p>
-      <img src="https://avatars.githubusercontent.com/u/44606215?v=4&size=64"
-           alt="Andrei Kalinin's Profile Photo">
+      <div class="row" style="align-items: center;">
+        <div class="column">
+          <h1>Andrei Kalinin</h1>
+          <p><em>Software Engineer &amp; Technical Problem Solver</em></p>
+        </div>
+        <div class="column" style="display: flex; justify-content: flex-end; align-items: center;">
+          <img
+            src="https://avatars.githubusercontent.com/u/44606215?v=4&size=256"
+            alt="Andrei Kalinin's Profile Photo"
+            class="profile-photo"
+          >
+        </div>
+      </div>
     </header>
 
     <main>
@@ -52,6 +61,10 @@
           performance, and ensuring secure, scalable deployments. 
           My approach emphasizes clean architecture, efficient data 
           handling, and a solid user experience.
+        </p>
+        <p>
+          It's a shame though that businesses usually pay for trivial and cost efficient stuff,
+          so I try to find a balance between the two.
         </p>
       </section>
 
@@ -268,6 +281,20 @@
           </div>
         </article>
       </section>
+
+      <!-- CONTACT -->
+      <section class="flex-section" id="contact-section">
+        <h2>Contact</h2>
+        <article>
+          <div class="section-heading">
+            <h3>Email</h3>
+          </div>
+          <div class="section-content">
+            <button id="reveal-email-btn" type="button">Show Email</button>
+            <span id="email-placeholder" style="margin-left:1rem;"></span>
+          </div>
+        </article>
+      </section>
     </main>
 
     <footer>
@@ -279,5 +306,24 @@
 
   <!-- JS scripts (if needed) -->
   <!-- <script src="js/scripts.js"></script> -->
+  <!-- JS scripts (if needed) -->
+  <script>
+    document.getElementById('reveal-email-btn').addEventListener('click', function() {
+      fetch('https://your-server.example.com/api/get-email')
+        .then(response => response.json())
+        .then(data => {
+          const email = data.email;
+          const emailLink = document.createElement('a');
+          emailLink.href = 'mailto:' + email;
+          emailLink.textContent = email;
+          document.getElementById('email-placeholder').innerHTML = '';
+          document.getElementById('email-placeholder').appendChild(emailLink);
+          this.style.display = 'none';
+        })
+        .catch(() => {
+          document.getElementById('email-placeholder').textContent = 'Unable to load email.';
+        });
+    });
+  </script>
 </body>
 </html>
